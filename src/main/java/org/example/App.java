@@ -1,10 +1,7 @@
 package org.example;
 
-import org.example.storage.CharacterStorage;
-import org.example.storage.CharacterStorageJson;
-
-import java.io.File;
-import java.util.List;
+import org.example.storage.PokemonStorage;
+import org.example.storage.PokemonStorageJson;
 
 /**
  * Hello world!
@@ -13,7 +10,7 @@ import java.util.List;
 public class App 
 {
     public static void main( String[] args ) {
-        CharacterStorage characterStorage = new CharacterStorageJson();
+        PokemonStorage characterStorage = new PokemonStorageJson();
         characterStorage.readFromAPI("https://rickandmortyapi.com/api/character");
         System.out.println();
     }

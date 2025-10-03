@@ -1,21 +1,19 @@
 package org.example.storage;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.model.CharacterRM;
+import org.example.model.Pokemon;
 import org.example.model.Response;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CharacterStorageJson implements CharacterStorage {
+public class PokemonStorageJson implements PokemonStorage {
     @Override
-    public List<CharacterRM> readFromAPI(String api) {
-        List<CharacterRM> characters = new ArrayList<>();
+    public List<Pokemon> readFromAPI(String api) {
+        List<Pokemon> characters = new ArrayList<>();
         try {
 
             System.out.println("Reading file " + api);
@@ -37,4 +35,5 @@ public class CharacterStorageJson implements CharacterStorage {
         return characters;
 
     }
+
 }

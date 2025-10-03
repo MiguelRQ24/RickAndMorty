@@ -2,7 +2,7 @@ package org.example.model;
 
 import java.util.List;
 
-public class CharacterRM {
+public class Pokemon {
 	private String image;
 	private String gender;
 	private String species;
