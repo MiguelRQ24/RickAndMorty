@@ -2,7 +2,7 @@ package org.example.model;
 
 import java.util.List;
 
-public class Pokemon {
+public class RickAndMortyCharacter {
 	private String image;
 	private String gender;
 	private String species;

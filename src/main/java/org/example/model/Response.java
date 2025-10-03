@@ -3,10 +3,10 @@ package org.example.model;
 import java.util.List;
 
 public class Response{
-	private List<Pokemon> results;
+	private List<RickAndMortyCharacter> results;
     private Info info;
 
-	public List<Pokemon> getResults(){
+	public List<RickAndMortyCharacter> getResults(){
 		return results;
 	}
 
@@ -23,7 +23,7 @@ public class Response{
 			"}";
 		}
 
-    public void setResults(List<Pokemon> results) {
+    public void setResults(List<RickAndMortyCharacter> results) {
         this.results = results;
     }
 

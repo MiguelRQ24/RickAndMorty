@@ -2,7 +2,7 @@ package org.example.storage;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.model.Pokemon;
+import org.example.model.RickAndMortyCharacter;
 import org.example.model.Response;
 
 import java.io.IOException;
@@ -10,10 +10,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PokemonStorageJson implements PokemonStorage {
+public class CharacterStorageJson implements CharacterStorage {
     @Override
-    public List<Pokemon> readFromAPI(String api) {
-        List<Pokemon> characters = new ArrayList<>();
+    public List<RickAndMortyCharacter> readFromAPI(String api) {
+        List<RickAndMortyCharacter> characters = new ArrayList<>();
         try {
 
             System.out.println("Reading file " + api);
