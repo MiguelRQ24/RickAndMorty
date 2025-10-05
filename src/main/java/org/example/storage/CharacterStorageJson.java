@@ -12,20 +12,28 @@ import java.util.List;
 
 public class CharacterStorageJson implements CharacterStorage {
     @Override
-    public List<RickAndMortyCharacter> readFromAPI(String api) {
+    public List<RickAndMortyCharacter> readFromAPI(String apiInicial) {
         List<RickAndMortyCharacter> characters = new ArrayList<>();
         try {
-
-            System.out.println("Reading file " + api);
+            URL api = new URL(apiInicial);
+            System.out.println("Reading API: " + api);
+            // Creo el maper
             ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
-            Response response = objectMapper.readValue( new URL(api) , Response.class);
+            // Repuesta de la consulta a la api dada
+            Response response = objectMapper.readValue( api , Response.class);
 
+            // Mientras haya siguiente pagina seguiente pagina añadir los vlaores
             while (response.getInfo().getNext() != null) {
+                System.out.println("Leyendo api: " + api);
+                response = objectMapper.readValue(api, Response.class);
+
                 System.out.println("Añadiendo los resultados.");
                 characters.addAll(response.getResults());
-                System.out.println("Siguiente busqueda: " + response.getInfo().getNext());
-                response = objectMapper.readValue( new URL(response.getInfo().getNext()) , Response.class);
+
+                // Cambio el valor de la api a la siguiente
+                if (response.getInfo().getNext() != null) {
+                    api = new URL(response.getInfo().getNext());
+                }
             }
             System.out.println("Resultados añadidos correctamente");
             return characters;

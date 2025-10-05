@@ -66,20 +66,15 @@ public class RickAndMortyCharacter {
 
 	@Override
  	public String toString(){
-		return 
-			"ResultsItem{" + 
-			"image = '" + image + '\'' + 
-			",gender = '" + gender + '\'' + 
-			",species = '" + species + '\'' + 
-			",created = '" + created + '\'' + 
-			",origin = '" + origin + '\'' + 
-			",name = '" + name + '\'' + 
-			",location = '" + location + '\'' + 
-			",episode = '" + episode + '\'' + 
-			",id = '" + id + '\'' + 
-			",type = '" + type + '\'' + 
-			",url = '" + url + '\'' + 
-			",status = '" + status + '\'' + 
-			"}";
+		return
+            "Nombre: " + name +
+			"\tGenero: " + gender +
+			"\tEspecies: " + species +
+			"\tCreado: " + created +
+			"\tOrigen: " + origin +
+			"\tLocalizacion: " + location +
+			"\tEpisodio: " + episode +
+			"\tTipo: " + type +
+			"\tEstado: " + status;
 		}
 }

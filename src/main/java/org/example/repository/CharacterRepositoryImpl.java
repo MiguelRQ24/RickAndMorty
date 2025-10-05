@@ -7,35 +7,35 @@ import java.util.List;
 import java.util.Map;
 
 public class CharacterRepositoryImpl implements CharacterRepository {
-    private final Map<Integer, RickAndMortyCharacter> pokemons =  new HashMap<>();
+    private final Map<Integer, RickAndMortyCharacter> characters =  new HashMap<>();
     @Override
     public List<RickAndMortyCharacter> getAll() {
-        return getPokemons().values().stream().toList();
+        return getCharacters().values().stream().toList();
     }
 
     @Override
-    public RickAndMortyCharacter getById(Integer integer) {
-        return null;
+    public RickAndMortyCharacter getById(Integer id) {
+        return characters.get(id);
     }
 
     @Override
     public RickAndMortyCharacter save(RickAndMortyCharacter pokemon) {
-        pokemons.putIfAbsent(pokemon.getId(), pokemon);
+        characters.putIfAbsent(pokemon.getId(), pokemon);
         return pokemon;
     }
 
     @Override
     public RickAndMortyCharacter update(Integer integer, RickAndMortyCharacter pokemon) {
-        pokemons.replace(integer, pokemon);
+        characters.replace(integer, pokemon);
         return pokemon;
     }
 
     @Override
     public RickAndMortyCharacter delete(Integer integer) {
-        return pokemons.remove(integer);
+        return characters.remove(integer);
     }
 
-    private Map<Integer, RickAndMortyCharacter> getPokemons() {
-        return pokemons;
+    private Map<Integer, RickAndMortyCharacter> getCharacters() {
+        return characters;
     }
 }
