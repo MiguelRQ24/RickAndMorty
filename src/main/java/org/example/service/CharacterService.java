@@ -19,4 +19,6 @@ public interface CharacterService {
     RickAndMortyCharacter update(int id, RickAndMortyCharacter character);
 
     RickAndMortyCharacter delete(int id);
+
+    List<RickAndMortyCharacter> searchByName(String name);
 }

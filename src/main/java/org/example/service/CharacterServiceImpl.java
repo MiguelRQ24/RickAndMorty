@@ -19,35 +19,34 @@ public class CharacterServiceImpl implements CharacterService {
     public List<RickAndMortyCharacter> readFromAPI(String api) {
         return storage.readFromAPI(api);
     }
-
     @Override
     public void importFromApi(String api) {
         storage.readFromAPI(api).forEach(repository::save);
     }
-
-
     @Override
     public List<RickAndMortyCharacter> getAll() {
         return repository.getAll();
     }
-
     @Override
     public RickAndMortyCharacter getById(int id) {
         return repository.getById(id);
     }
-
     @Override
     public RickAndMortyCharacter save(RickAndMortyCharacter Character) {
         return repository.save(Character);
     }
-
     @Override
     public RickAndMortyCharacter update(int id, RickAndMortyCharacter Character) {
         return repository.update(id, Character);
     }
-
     @Override
     public RickAndMortyCharacter delete(int id) {
         return repository.delete(id);
+    }
+
+    public List<RickAndMortyCharacter> searchByName(String name) {
+        return repository.getAll().stream()
+                .filter(character -> character.getName().contains("Rick"))
+                .toList();
     }
 }
