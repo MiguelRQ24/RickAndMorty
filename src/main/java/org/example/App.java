@@ -7,6 +7,7 @@ import org.example.service.CharacterServiceImpl;
 import org.example.storage.CharacterStorage;
 import org.example.storage.CharacterStorageJson;
 
+import java.util.stream.Collectors;
 
 
 /**
@@ -19,7 +20,14 @@ public class App {
         service.importFromApi("https://rickandmortyapi.com/api/character");
         System.out.println(service.getAll().size());
         //System.out.println(service.getAll());
-        service.getAll().stream().filter(character -> character.getName().contains("Rick")).forEach(System.out::println);
+
+        service.searchByName("Rick").forEach(System.out::println);
+
+        service.getAll().stream().collect(Collectors.groupingBy(RickAndMortyCharacter::getGender))
+               .forEach((a, b ) -> {
+                   System.out.println(a);
+                   b.forEach(System.out::println);
+               });
 
 //        CharacterStorage characterStorage = new CharacterStorageJson();
 //        characterStorage.readFromAPI("https://rickandmortyapi.com/api/character");
