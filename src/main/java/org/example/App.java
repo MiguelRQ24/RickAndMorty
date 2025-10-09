@@ -21,16 +21,15 @@ public class App {
         System.out.println(service.getAll().size());
         //System.out.println(service.getAll());
 
-        service.searchByName("Rick").forEach(System.out::println);
+        service.searchByName("Wasp Rick").forEach(System.out::println);
 
         service.getAll().stream().collect(Collectors.groupingBy(RickAndMortyCharacter::getGender))
-               .forEach((a, b ) -> {
-                   System.out.println(a);
-                   b.forEach(System.out::println);
-               });
-
-//        CharacterStorage characterStorage = new CharacterStorageJson();
-//        characterStorage.readFromAPI("https://rickandmortyapi.com/api/character");
-//        System.out.println();
+               .forEach((a, b ) ->
+                   System.out.println("De genero "+ a + " hay " + b.size())
+               );
+        service.getAll().stream().collect(Collectors.groupingBy(character -> character.getOrigin().getName()))
+                .forEach((a, b ) ->
+                        System.out.println("De procedencia "+ a + " hay " + b.size())
+                );
     }
 }

@@ -15,9 +15,6 @@ public class Origin{
 	@Override
  	public String toString(){
 		return 
-			"Origin{" + 
-			"name = '" + name + '\'' + 
-			",url = '" + url + '\'' + 
-			"}";
+			"Origin" + name;
 		}
 }
