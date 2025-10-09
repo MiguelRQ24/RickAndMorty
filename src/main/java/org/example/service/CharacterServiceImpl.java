@@ -46,7 +46,7 @@ public class CharacterServiceImpl implements CharacterService {
 
     public List<RickAndMortyCharacter> searchByName(String name) {
         return repository.getAll().stream()
-                .filter(character -> character.getName().contains("Rick"))
+                .filter(character -> character.getName().contains(name))
                 .toList();
     }
 }
